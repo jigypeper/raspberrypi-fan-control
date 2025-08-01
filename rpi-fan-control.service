@@ -1,0 +1,18 @@
+[Unit]
+Description=Raspberry Pi Fan Controller
+After=multi-user.target
+StartLimitBurst=3
+StartLimitIntervalSec=60
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/rpi-fan-control.py
+Restart=always
+RestartSec=10
+User=root
+Group=root
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
